@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %}关键词详情{% endblock %}
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div>
+        <h1>keyword_name</h1>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div>
+        <h3>相关文章</h3>
+    </div>
+    <hr>
+    <div class="row" style="margin-top: 20px;">
+        <div class="col"></div>
+        <div class="col-10">
+            <ul class="question-ul">
+                {% for detail in details %}
+                    <li>
+                        <div class="question-main">
+                            <div class="question-title"><a
+                                    href="{{ url_for('qa.qa_detail',qa_id=result.get('_id')) }}">{{ detail.get('title') }}</a>
+                            </div>
+                            <div class="question-detail">
+                                <span class="question-author">{{ detail.get('author') }} </span>
+                                •
+                                <span class="question-time">{{ detail.get('month') }}  {{ detail.get('year') }} </span>
+                            </div>
+                            <div class="question-abstract">{{ detail.get('abstract') }}</div>
+                            <p>
+                                <a href="{{ url_for("qa.keyword_detail", keyword_name=lable) }}">
+                                    <span class="badge badge-primary">
+                                        <span>{{ lable }}</span>
+                                    </span>
+                                </a>
+                            </p>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endblock %}

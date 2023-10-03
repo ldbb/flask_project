@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block title %}结果{% endblock %}
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/detail.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div class="row" style="margin-top: 20px;">
+        <div class="col-10" >
+            <iframe src="{{ src }}" style="width:600px;height:1000px;margin-left: 5px;"></iframe>
+        </div>
+        <div class="result" style="width: 100px;margin-right: 50px;">
+            <h4>Keywords</h4>
+            <hr>
+            <p>
+                <a href="#">
+                    <span class="badge badge-primary">
+                        <span>keyword</span>
+                    </span>
+                </a>
+            </p>
+            <p>
+                    <h4>Methods</h4>
+                    <hr>
+                    <a href="#">
+                        <span class="badge badge-primary">
+                            <span>methods</span>
+                        </span>
+                    </a>
+                </p>
+                <p>
+                    <h4>Merics</h4>
+                    <hr>
+                    <a href="#">
+                        <span class="badge badge-primary">
+                            <span>merics</span>
+                        </span>
+                    </a>
+                </p>
+                <p>
+                    <h4>Tasks</h4>
+                    <hr>
+                    <a href="#">
+                        <span class="badge badge-primary">
+                            <span>tasks</span>
+                        </span>
+                    </a>
+                </p>
+                <p>
+                    <h4>Datasets</h4>
+                    <hr>
+                    <a href="#">
+                        <span class="badge badge-primary">
+                            <span>Datasets</span>
+                        </span>
+                    </a>
+                </p>
+        </div>
+    </div>
+{% endblock %}

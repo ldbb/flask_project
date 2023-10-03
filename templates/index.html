@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+
+{% block title %}首页{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/index.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div class="row" style="margin-top: 20px;">
+        <div class="col"></div>
+        <div class="col-10">
+            <ul class="question-ul">
+                {% for dict in arrays %}
+                    <li>
+                        <div class="question-main">
+                            <div class="question-title">
+                                <a href="{{ url_for('qa.qa_detail',qa_id=dict['_id']) }}">
+                                    {{ dict['title'] }}
+                                </a>
+                            </div>
+                            <div class="question-detail">
+                                <span class="question-author">{{ dict['author'] }} </span>
+                                •
+                                <span class="question-time">{{ dict['month'] }}  {{ dict['year'] }} </span>
+                            </div>
+                            <div class="question-abstract">{{ dict['abstract'] }}</div>
+                            <p>
+                                <a href="{{ url_for("qa.keyword_detail") }}">
+                                    <span class="badge badge-primary">
+                                        <span>lable</span>
+                                    </span>
+                                </a>
+                            </p>
+                        </div>
+                    </li>
+                {% endfor %}
+
+            </ul>
+        </div>
+        <div class="col"></div>
+    </div>
+    <div style="text-align: center">
+        {{ pagination.links }}
+    </div>
+{% endblock %}
+
